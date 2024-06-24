@@ -1,33 +1,45 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+// react-router-dom
+import { createBrowserRouter, createRoutesFromElements, RouterProvider, Route } from 'react-router-dom'
 import './App.css'
+//Layout
+import MainLayout from './Layouts/MainLayout'
+import ArticleLayout from './Layouts/ArticleLayout'
+import ContactLayout from './Layouts/ContactLayout'
+// Pages
+import Home from './Pages/Home'
+import About from './Pages/About'
+import Portfolio from './Pages/Portfolio'
+import Faq from './Pages/NastedRoute/Faq'
+import Form from './Pages/NastedRoute/Form'
+import ErrorPage from './Pages/ErrorPage'
+import Article from './articles/Article'
+
 
 function App() {
-  const [count, setCount] = useState(0)
+const routes = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path='/' element={<MainLayout/>}>
+      <Route index element={<Home/>}/>
+      <Route path='about' element={<About/>}/>
+      <Route path='portfolio' element={<Portfolio/>}/>
+
+      <Route path='contact' element={<ContactLayout/>}>
+          <Route path='faq' element={<Faq/>}/>
+          <Route path='form' element={<Form/>}/>
+      </Route>
+      <Route path='article' element={<ArticleLayout/>}>
+        <Route index element={<Article/>}/>
+      </Route>
+      {/* page not found */}
+      <Route path='*' element={<ErrorPage/>}/>
+
+    </Route>
+  )
+)
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+     <RouterProvider router={routes}/>
     </>
   )
 }
