@@ -71,9 +71,18 @@ function ArticlesDetailes() {
         </div>
         <div>
             <h1 className={'text-center text-[40px] text-blue-500 mt-20 mb-10  '}>Collize</h1>
-            <div className={'w-[500px] relative rounded-lg overflow-hidden '}>
-                <img src={data.image} className={' w-full '} alt="" />
+            <div className={'flex justify-between gap-12'}>
+            <div className={'w-1/2 relative rounded-lg overflow-hidden '}>
+                <img src={data.thumbnail[0]} className={' w-full '} alt="" />
                 <div className={'absolute top-0 left-0 w-full bottom-0 bg-black bg-opacity-50 z-10 '}> <a href='https://youtu.be/FlRwssZYRM0?si=PKf9Hu34vfYsl9fm' className={'text-white text-[25px] px-6 py-[14px] rounded-full bg-red-700 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 '}> <div class="absolute inset-0 m-auto w-16 h-16 rounded-full border-4 border-red-700 animate-pulse-border"></div> > </a> </div>
+            </div>
+            <div className={'w-1/2 flex flex-col  relative'}>
+            <h1 className={' text-3xl font-bold text-orange-600 mb-4'}>{data.kolizeyTitle}</h1>
+                <p className={'text-gray-500'}>{data.kolizey}</p>
+              <div className=''>
+              <a href="#" className={'btn btn-primary absolute right-0 bottom-0'}>watch video</a>
+              </div>
+            </div>
             </div>
         </div>
         </>
