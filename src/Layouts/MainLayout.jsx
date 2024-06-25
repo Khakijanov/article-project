@@ -65,7 +65,7 @@ function MainLayout() {
                     </NavLink>
                   </li>
                   <li>
-                    <NavLink to="/article" onClick={closeDropdown}>
+                    <NavLink to="/articles" onClick={closeDropdown}>
                       Article
                     </NavLink>
                   </li>

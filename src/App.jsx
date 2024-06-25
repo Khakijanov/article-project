@@ -13,6 +13,7 @@ import Faq from './Pages/NastedRoute/Faq'
 import Form from './Pages/NastedRoute/Form'
 import ErrorPage from './Pages/ErrorPage'
 import Article from './articles/Article'
+import ArticlesDetailes from './articles/ArticlesDetailes'
 
 
 function App() {
@@ -27,8 +28,9 @@ const routes = createBrowserRouter(
           <Route path='faq' element={<Faq/>}/>
           <Route path='form' element={<Form/>}/>
       </Route>
-      <Route path='article' element={<ArticleLayout/>}>
+      <Route path='articles' element={<ArticleLayout/>}>
         <Route index element={<Article/>}/>
+        <Route path=':id' element={<ArticlesDetailes/>}/>
       </Route>
       {/* page not found */}
       <Route path='*' element={<ErrorPage/>}/>

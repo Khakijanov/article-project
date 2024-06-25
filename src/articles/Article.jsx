@@ -11,7 +11,7 @@ function Article() {
         {error && <h2>Not Found</h2> }
         {data && data.data.map((item)=>{
             console.log(item.image)
-            return <div className="card bg-base-100 image-full w-96 shadow-sm z-0">
+            return <div key={item.id}  className="card bg-base-100 image-full w-96 shadow-sm z-0">
   <figure>
     <img
       src={item.image}
@@ -21,7 +21,7 @@ function Article() {
     <h2 className="card-title text-white">{item.title}</h2>
     <p>{item.author}</p>
     <div className="card-actions justify-end">
-      <NavLink to={""} className="btn btn-primary">Learn More</NavLink>
+      <NavLink to={`/articles/${item.id}`} className="btn btn-primary">Learn More</NavLink>
     </div>
   </div>
 </div>
